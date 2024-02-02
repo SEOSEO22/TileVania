@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D playerRigid;
+    Animator anim;
     Vector2 moveInput;
 
     [SerializeField]
@@ -14,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         playerRigid = GetComponent<Rigidbody2D>();
-
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 pVelocity = new Vector2(moveInput.x * pMoveSpeed, playerRigid.velocity.y);
         playerRigid.velocity = pVelocity;
+
+        bool isPlayerMove = Mathf.Abs(moveInput.x) > Mathf.Epsilon;
+        anim.SetBool("isRunning", isPlayerMove);
     }
 
     void FlipSprite()
