@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     float pMoveSpeed = 5f;
+    [SerializeField]
+    float jumpForce = 10f;
 
     private void Start()
     {
@@ -24,12 +26,20 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
     }
 
-    void OnMove(InputValue value)
+    private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
 
-    void Run()
+    private void OnJump(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            playerRigid.velocity += new Vector2(0f, jumpForce);
+        }
+    }
+
+    private void Run()
     {
         Vector2 pVelocity = new Vector2(moveInput.x * pMoveSpeed, playerRigid.velocity.y);
         playerRigid.velocity = pVelocity;
