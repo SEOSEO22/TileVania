@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Ladder02
+  m_Name: Ladder04
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2175421723819871001, guid: 862b40d28afa3c94fbc03f6652069a5e, type: 3}
+  m_Sprite: {fileID: 6402279330518341766, guid: 862b40d28afa3c94fbc03f6652069a5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

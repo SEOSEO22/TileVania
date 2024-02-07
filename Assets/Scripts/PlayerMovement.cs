@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    float startGravity;
+    Vector2 moveInput;
     Rigidbody2D playerRigid;
     Animator anim;
-    Vector2 moveInput;
     CapsuleCollider2D playerCollider;
 
     [SerializeField]
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         playerRigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerCollider = GetComponent<CapsuleCollider2D>();
+        startGravity = playerRigid.gravityScale;
     }
 
     private void Update()
@@ -67,9 +69,14 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) return;
+        if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            playerRigid.gravityScale = startGravity;
+            return;
+        }
 
         Vector2 climbVelocity = new Vector2(playerRigid.velocity.x, moveInput.y * climbSpeed);
         playerRigid.velocity = climbVelocity;
+        playerRigid.gravityScale = 0f;
     }
 }
