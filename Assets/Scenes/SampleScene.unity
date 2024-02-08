@@ -15446,7 +15446,7 @@ GameObject:
   - component: {fileID: 1223576662}
   - component: {fileID: 1223576663}
   - component: {fileID: 1223576664}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15635,7 +15635,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34572315, y: -0.4175446}
+  m_Offset: {x: 0.36, y: -0.4175446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}

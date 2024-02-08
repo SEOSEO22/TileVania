@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] float pMoveSpeed = 5f;
+    [SerializeField] float jumpForce = 10f;
+    [SerializeField] float climbSpeed = 10f;
+
     float startGravity;
     Vector2 moveInput;
     Rigidbody2D playerRigid;
@@ -12,12 +16,7 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D playerBodyCollider;
     BoxCollider2D playerFeetCollider;
 
-    [SerializeField]
-    float pMoveSpeed = 5f;
-    [SerializeField]
-    float jumpForce = 10f;
-    [SerializeField]
-    float climbSpeed = 10f;
+    bool isAlive = true;
 
     private void Start()
     {
@@ -30,18 +29,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!isAlive) return;
+
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
 
     private void OnMove(InputValue value)
     {
+        if (!isAlive) return;
         moveInput = value.Get<Vector2>();
     }
 
     private void OnJump(InputValue value)
     {
+        if (!isAlive) return;
         if (!playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
 
         if (value.isPressed)
@@ -84,5 +88,12 @@ public class PlayerMovement : MonoBehaviour
 
         bool isPlayerClimb = Mathf.Abs(playerRigid.velocity.y) > Mathf.Epsilon;
         anim.SetBool("isClimbing", isPlayerClimb);
+    }
+
+    void Die()
+    {
+        if (!playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy"))) return;
+
+        isAlive = false;
     }
 }
