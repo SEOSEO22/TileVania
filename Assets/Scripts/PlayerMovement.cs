@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     CapsuleCollider2D playerBodyCollider;
     BoxCollider2D playerFeetCollider;
+    SpriteRenderer spriteRenderer;
 
     bool isAlive = true;
 
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         playerBodyCollider = GetComponent<CapsuleCollider2D>();
         playerFeetCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         startGravity = playerRigid.gravityScale;
     }
 
@@ -95,5 +97,12 @@ public class PlayerMovement : MonoBehaviour
         if (!playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy"))) return;
 
         isAlive = false;
+        anim.SetTrigger("Dying");
+        spriteRenderer.color = new Color32(255, 255, 255, 100);
+        playerRigid.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        playerBodyCollider.enabled = false;
+        playerFeetCollider.enabled = false;
+
+        Destroy(gameObject, 2f);
     }
 }
