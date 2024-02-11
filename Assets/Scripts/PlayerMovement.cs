@@ -94,12 +94,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        if (!playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy"))) return;
+        if (!playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazard"))) return;
 
         isAlive = false;
         anim.SetTrigger("Dying");
         spriteRenderer.color = new Color32(255, 255, 255, 100);
-        playerRigid.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        playerRigid.velocity = new Vector2(0f, 10f);
+        //playerRigid.AddForce(new Vector2(0, 20), ForceMode2D.Impulse);
+
+        Invoke("DestroyObject", 2f);
+    }
+
+    void DestroyObject()
+    {
         playerBodyCollider.enabled = false;
         playerFeetCollider.enabled = false;
 

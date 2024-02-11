@@ -17,7 +17,7 @@ TagManager:
   - Background
   - Jumping
   - Enemy
-  - 
+  - Hazard
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Climbing
     uniqueID: 2325033853
+    locked: 0
+  - name: Hazard
+    uniqueID: 2171505171
     locked: 0
   - name: Platforms
     uniqueID: 2039208365
