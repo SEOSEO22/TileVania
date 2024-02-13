@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float pMoveSpeed = 5f;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] float climbSpeed = 10f;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
 
     float startGravity;
     Vector2 moveInput;
@@ -54,6 +56,13 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRigid.velocity += new Vector2(0f, jumpForce);
         }
+    }
+
+    private void OnFire(InputValue value)
+    {
+        if (!isAlive) return;
+
+        Instantiate(bullet, gun.position, transform.rotation);
     }
 
     private void Run()
