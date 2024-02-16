@@ -119,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         playerBodyCollider.enabled = false;
         playerFeetCollider.enabled = false;
 
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 1f);
+        FindObjectOfType<GameSession>().Invoke("PlayerDeath", 1f);
     }
 }

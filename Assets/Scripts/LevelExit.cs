@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    float time = 2f;
+    float time = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             StartCoroutine(Exit());
         }
