@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 1711780260567446152}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4844534551911103558
 SpriteRenderer:
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 230710299
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -899178453, guid: 740ccb071315e1141a3cf6e39a0a73d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -264,6 +264,8 @@ MonoBehaviour:
   pMoveSpeed: 5
   jumpForce: 14
   climbSpeed: 5
+  bullet: {fileID: 4066155069035576829, guid: 45dd2a9eb6c747741adb743fd8ef3845, type: 3}
+  gun: {fileID: 1711780260567446152}
 --- !u!1 &6262238908078714011
 GameObject:
   m_ObjectHideFlags: 0
