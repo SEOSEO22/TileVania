@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Destroy(collision.gameObject);
+            FindObjectOfType<GameSession>().AddScore(700);
         }
         Destroy(gameObject);
     }

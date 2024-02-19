@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6278208387770478418}
   m_Layer: 14
   m_Name: Bronze Coin
-  m_TagString: Untagged
+  m_TagString: Bronze Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &556167663849613021
 SpriteRenderer:
